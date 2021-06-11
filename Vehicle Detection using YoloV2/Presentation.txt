@@ -1,0 +1,40 @@
+So let's see how data is anylised. The data for example any video is consists of large no. of frames.
+Each frame is converted into a grayscale image.
+Below is a simple illustration of the grayscale image buffer which stores our image of 
+Abraham Lincoln.
+Each pixel's brightness or every shade is represented by a single 8-bit number, whose range is from 0 to 255 for grayscale image.
+
+next
+pixel values are almost universally stored, at the hardware level, in an  array. For example, the data from the image above is stored in a manner similar to this long list of unsigned chars.
+But this way of storing image data may run counter to your expectations, since the data certainly appears to be two-dimensional when it is displayed.Still it is a best way beacuse it is simpler and our computer memory consists simply of an ever-increasing linear list of address spaces.
+
+
+
+
+
+Non max suppresion
+So here comes the most important part of the whole process. .One of the problems of Object Detection is that your algorithm may find multiple detections of the same objects. Rather than detecting an object just once, it might detect it multiple times. Non-max suppression is a way for you to make sure that your algorithm detects each object only once So, when you run your algorithm, you might end up with multiple detections of each object. So, what non-max suppression does, is it cleans up these detections. So Yolo uses Non-Maximal Suppression (NMS) to only keep the best bounding box.
+The first step in Non max suppression is to remove all the predicted bounding boxes that have a detection probability lower than a given threhold. it removes the unnecesary bounding boxes and focuses on the objects with desired probablity.So  what it does, is it first looks at the probabilities associated with each of these detections.
+We set the threshold to 0.6. means that all predicted bounding boxes that have a detection probability less than 0.6 will be removed.
+
+One of the challenges of the computer vision is that inputs can get really big.
+
+
+Pros
+Our model has several advantages over classifier-based systems. Like classifier usually works with binary outputs, it just outputs yes or no about the required object and doesn't detect it.
+It looks at the whole image at test time so its predictions are informed by global context in the image.That means it will be more accurate and quick.
+It also makes predictions with a single network evaluation unlike systems like R-CNN which require thousands for a single image.In R-CNN(region based cnn) the data is divide in thousands of part and the cnn is aplied that makes it more complex.
+Thats why our normal CNN is thousand times faster than r-CNN.
+
+Cons
+Powerfull Machine Required. It requires a higher end pc for quick results.
+Updates are not frequent as Yolo v3 is now arrived.
+Can have minor FPS issues , for getting real time output fps drops can be seen.
+
+
+
+
+
+
+
+
